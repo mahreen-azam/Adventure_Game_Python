@@ -32,10 +32,10 @@ def getUserInput(prompt):
 def first_choice():
     flags = []
 
-    response = getUserInput("Enter 1 if you'd like to go into the "
-                            "tree.\n"
-                            "Enter 2 if you'd like to call for the royal "
-                            "gaurd.\n"
+    response = getUserInput("Enter 1 if you'd like to go into the"
+                            " tree.\n"
+                            "Enter 2 if you'd like to call for the royal"
+                            " gaurd.\n"
                             "What would you like to do?\n")
 
     if response == 1:
@@ -49,17 +49,17 @@ def first_choice():
 
 def no_gaurd(flags):
     if "waitForLight" in flags:
-        print_with_pause("The tunnel does not get any brighter\n")
+        print_with_pause("The tunnel does not get any brighter.\n")
     else:
         print_with_pause("You enter the tree to find it leads to a dark\n"
                          "underground tunnel.\n")
         print_with_pause("You feel around but cannot see anything so you\n"
                          "must call your gaurds for a torch.\n")
 
-    response = getUserInput("Enter 1 if you'd like to call for the royal "
-                            "gaurd.\n"
-                            "Enter 2 if you'd like to wait and see if the "
-                            "tunnel gets brighter.\n"
+    response = getUserInput("Enter 1 if you'd like to call for the royal"
+                            " gaurd.\n"
+                            "Enter 2 if you'd like to wait and see if the"
+                            " tunnel gets brighter.\n"
                             "What would you like to do?\n")
 
     if response == 1:
@@ -108,7 +108,7 @@ def gaurds(flags):
 def moveAlter(flags):
     if "movedAlter" in flags:
         print_with_pause("The gaurds keep trying to move the alter but it"
-                         "appears to be too heavy.\n")
+                         " appears to be too heavy.\n")
     else:
         print_with_pause("The gaurds all try and move the alter but it appears"
                          " to be too heavy.\n")
@@ -182,14 +182,14 @@ def fight(flags):
     fightResult = random.randint(1, 2)
 
     if fightResult == 1:
-        print_with_pause("Your gaurds are tired and you see that you're"
-                         " about to lose, but then you find the will and"
+        print_with_pause("Your gaurds are tired and you see that you're\n"
+                         "about to lose, but then you find the will and"
                          " slay the beast.\n")
-        print_with_pause("You walk out of their victorious knowing your"
-                         " kingdom is safe for another day.\n")
+        print_with_pause("You walk out of their victorious knowing your\n"
+                         "kingdom is safe for another day.\n")
     elif fightResult == 2:
-        print_with_pause("You fight bravely but your gaurds are tired and the"
-                         "  battle is not going well.\n")
+        print_with_pause("You fight bravely but your gaurds are tired and\n"
+                         "the battle is not going well.\n")
         print_with_pause("The beast is too strong and ends up demolishing you"
                          " and your gaurds.\n"
                          "The kingdom has fallen.\n")
