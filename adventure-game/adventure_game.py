@@ -16,17 +16,28 @@ def intro():
     print_with_pause("The tree has a large, dark, opening that seems to lead\n"
                      "somewhere.\n")
 
+def getUserInput(prompt):
+    while True:
+        try:
+            response = int(input(prompt))
+        except ValueError:
+            print_with_pause("Sorry, that is not a valid input, try again.\n")
+            continue
+        else:
+            return response
+            break
+
 
 def first_choice():
     flags = []
 
-    response = input("Enter 1 if you'd like to go into the tree.\n"
+    response = getUserInput("Enter 1 if you'd like to go into the tree.\n"
                      "Enter 2 if you'd like to call for the royal gaurd.\n"
                      "What would you like to do?\n")
 
-    if int(response) == 1:
+    if response == 1:
         no_gaurd(flags)
-    elif int(response) == 2:
+    elif response == 2:
         gaurds(flags)
     else:
         print_with_pause("Sorry, that is not a valid input, try again.\n")
@@ -42,21 +53,21 @@ def no_gaurd(flags):
         print_with_pause("You feel around but cannot see anything so you\n"
                          "must call your gaurds for a torch.\n")
 
-    response = input("Enter 1 if you'd like to call for the royal gaurd.\n"
+    response = getUserInput("Enter 1 if you'd like to call for the royal gaurd.\n"
                      "Enter 2 if you'd like to wait and see if the tunnel"
                      " gets brighter.\n"
                      "What would you like to do?\n")
 
-    if int(response) == 1:
+    if response == 1:
         flags.append("askedForTorch")
         gaurds(flags)
-    elif int(response) == 2:
+    elif response == 2:
         if "waitForLight" not in flags:
             flags.append("waitForLight")
-            no_gaurd(flags)
-        else:
-            print_with_pause("Sorry, that is not a valid input, try again.\n")
-            no_gaurd(flags)
+        no_gaurd(flags)
+    else:
+        print_with_pause("Sorry, that is not a valid input, try again.\n")
+        no_gaurd(flags)
 
 
 def gaurds(flags):
@@ -76,14 +87,14 @@ def gaurds(flags):
     print_with_pause("The alter has spot in the center that can be lit with"
                      " the torch.\n")
 
-    response = input("Enter 1 if you'd like to light the alter.\n"
+    response = getUserInput("Enter 1 if you'd like to light the alter.\n"
                      "Enter 2 if you'd like to ask the gaurds to try and"
                      " move the alter.\n"
                      "What would you like to do?\n")
 
-    if int(response) == 1:
+    if response == 1:
         lightAlter(flags)
-    elif int(response) == 2:
+    elif response == 2:
         moveAlter(flags)
     else:
         print_with_pause("Sorry, that is not a valid input, try again.\n")
@@ -100,7 +111,7 @@ def moveAlter(flags):
 
     print_with_pause("The door is still blocked and the alter still unlit.\n")
 
-    response = input("Enter 1 if you'd like to light the alter.\n"
+    response = getUserInput("Enter 1 if you'd like to light the alter.\n"
                      "Enter 2 if you'd like to keep trying to move"
                      " the alter.\n"
                      "What would you like to do?\n")
@@ -124,13 +135,13 @@ def lightAlter(flags):
     print_with_pause("An ancient and large snake appears and begins"
                      " to attack!!\n")
 
-    response = input("Enter 1 if you'd like to run.\n"
+    response = getUserInput("Enter 1 if you'd like to run.\n"
                      "Enter 2 if you'd like to stay and fight.\n"
                      "What would you like to do?\n")
 
-    if int(response) == 1:
+    if response == 1:
         run(flags)
-    elif int(response) == 2:
+    elif response == 2:
         fight(flags)
     else:
         print_with_pause("Sorry, that is not a valid input, try again.\n")
@@ -144,14 +155,14 @@ def run(flags):
     print_with_pause("You keep running but are not fast enough and the"
                      " snake gets you before you can escape the tunnel.\n")
 
-    response = input("Enter 1 if you'd like to play again.\n"
+    response = getUserInput("Enter 1 if you'd like to play again.\n"
                      "Enter 2 if you'd like to quit.\n"
                      "What would you like to do?\n")
 
-    if int(response) == 1:
+    if response == 1:
         print_with_pause("Restarting game. Good Luck!\n")
         gamePlay()
-    elif int(response) == 2:
+    elif response == 2:
         print_with_pause("Thank you for playing. Try again next time.\n")
     else:
         print_with_pause("Sorry, that is not a valid input, try again.\n")
@@ -180,14 +191,14 @@ def fight(flags):
                          "The kingdom has fallen.\n")
         print_with_pause("Game Over.\n")
 
-    response = input("Enter 1 if you'd like to play again.\n"
+    response = getUserInput("Enter 1 if you'd like to play again.\n"
                      "Enter 2 if you'd like to quit.\n"
                      "What would you like to do?\n")
 
-    if int(response) == 1:
+    if response == 1:
         print_with_pause("Restarting game. Good Luck!\n")
         gamePlay()
-    elif int(response) == 2:
+    elif response == 2:
         print_with_pause("Thank you for playing. Try again next time.\n")
     else:
         print_with_pause("Sorry, that is not a valid input, try again.\n")
